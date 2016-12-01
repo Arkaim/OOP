@@ -1,6 +1,4 @@
 import java.util.*;
-
-
 /**
  *  Class AudioFile
  *
@@ -24,45 +22,36 @@ public class AudioFile implements MediaFile{
 	 * method to get Name
 	 */
 	public String getName(){
-
 		return this.name;
-
 	}
 
 	/**
 	 * method to get duration
 	 */
 	public int getDuration(){
-
 		return this.duration;
-
 	}
 
 	/**
 	 * method to get mediatype
 	 */
 	public String getMediaType(){
-
-		return MEDIA_TYPE;
-
+		return (MEDIA_TYPE);
 	}
 
 	/**
 	 * method to define equals objects
 	 */
 	public boolean equals(Object object){
-
 		return object instanceof AudioFile &&
 		((AudioFile) object).getName().equals(getName());
 
 	}
 
 	/**
-	 * method print information
+	 * method returns string of names and duration
 	 */
 	public String toString(){
-
 		return getName() + "," + getDuration();
-
 	}
 }

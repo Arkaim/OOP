@@ -11,13 +11,11 @@ import java.util.*;
 	private ArrayList<AudioFile>files;
 
 	public AudioDatabase(){
-
 		this.files = new ArrayList<AudioFile>();
 	}
 
 	/**
-	 * Add file
-	 *
+	 * method to add file
 	 * @param audioFile.
 	 */
 	public void addFile(AudioFile audioFile){
@@ -26,25 +24,21 @@ import java.util.*;
 	}
 
 	/**
-	 * Remove file
+	 * method to remove file
 	 *
 	 * @param audioFile.
 	 */
 	public void removeFile(AudioFile audioFile){
-
-		for (Iterator<AudioFile> i = files.iterator(); i.hasNext();) {
-
-		   if (i.next() == audioFile) {
-
-			   i.remove();
+		for (Iterator<AudioFile> iter = files.iterator(); iter.hasNext();) {
+		   if (iter.next() == audioFile) {
+			   iter.remove();
                 return;
-
 		   }
 	   }
 	}
 
 	/**
-	 * iterator
+	 * Iterator
 	 *
 	 * @return iterator for files.
 	 */
@@ -86,13 +80,10 @@ import java.util.*;
 	* @return fileNames array
 	*/
 	public String[] getFileNames(){
-
 		String[] fileNames = new String[this.files.size()];
-
 		int k = 0;
 
 		for(MediaFile mediaFile: this.files){
-
 			fileNames[k] = mediaFile.getName();
             k++;
         }
@@ -101,20 +92,18 @@ import java.util.*;
 	}
 
 	/**
-	* method to get total duration
+	* method to get duration
 	*
 	* @return total duration
 	*/
 	public int getDuration(){
-
-		int res = 0;
+		int cnt = 0;
 
 		for(AudioFile element: files){
-
-			res += element.getDuration();
+			cnt += element.getDuration();
 		}
 
-		return res;
+		return cnt;
 	}
 
 }

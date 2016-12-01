@@ -54,7 +54,7 @@ public class VHSMovie extends Movie implements VHS{
 	 */
 	public String toString(){
 
-		return getTitle()+","+getFormat()+","+getLanguage();
+		return super.getTitle()+","+getFormat()+","+getLanguage();
 
 	}
 }

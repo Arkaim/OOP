@@ -1,10 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-/**
- * This class provides two file I/O methods for handling employee data.
- *
- * @author  author name
+ * @author  Kaimbayev
  * @version  1.0.0
  * @see  Employee
  */
@@ -34,19 +31,22 @@ public class  EmployeeFileIO {
 		ArrayList<Employee> arrayList = new ArrayList<Employee>();
 		BufferedReader fileIn = new BufferedReader(new FileReader(filename));
 		String line = fileIn.readLine();
-		
+
 		while(line != null){
-		
+
 			Employee employee;
-			StringTokenizer token = new StringTokenizer(line, "_");
-			int i = 0, id = 0;
+
+			StringTokenizer tknzr = new StringTokenizer(line, "_");
+			int i = 0;
+			int id = 0;
 			String name = "";
 			double salary = 0.0;
 
-			while(token.hasMoreTokens()) {
-		
-				String currentLine = token.nextToken();
-		
+
+			while(tknzr.hasMoreTokens()) {
+
+				String currentLine = tknzr.nextToken();
+
 				if(i == 0)
 					id = Integer.parseInt(currentLine);
 				else if (i == 1)
@@ -56,14 +56,12 @@ public class  EmployeeFileIO {
 
 				i++;
 			}
-		
+
 			employee = new Employee(id, name, salary);
 			arrayList.add(employee);
 			line = fileIn.readLine();
 		}
-		
 		fileIn.close();
-		
 		return arrayList;
 	}
 
@@ -83,16 +81,14 @@ public class  EmployeeFileIO {
 	public static void write(String filename, ArrayList<Employee> arrayList)
 		throws IOException  {
 
-		PrintWriter fileOut = new PrintWriter(new FileWriter(filename));
+		PrintWriter out = new PrintWriter(new FileWriter(filename));
 
 		for(Employee employee: arrayList){
-		
-			String currentLine = employee.getId() + "_" + employee.getName()
-											+ "_" + employee.getSalary();
-			fileOut.println(currentLine);
+			String currentLine = employee.getId() + "_" + employee.getName() + "_"
+			 							+ employee.getSalary();
+			out.println(currentLine);
 		}
-
-		fileOut.close();
+		out.close();
 
 	}
 }
